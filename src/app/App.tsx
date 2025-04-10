@@ -1,10 +1,10 @@
 import './App.css';
 
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Flex } from '@chakra-ui/react';
 
-import Menu from '~/components/Menu';
-
+import Content from '../components/Content';
 import Header from '../components/Header';
+import Menu from '../components/Menu';
 
 const menuCategories = [
     {
@@ -182,7 +182,10 @@ const menuCategories = [
 const App = () => (
     <ChakraProvider>
         <Header />
-        <Menu categories={menuCategories} />
+        <Flex>
+            <Menu categories={menuCategories} />
+            <Content />
+        </Flex>
     </ChakraProvider>
 );
 
