@@ -1,6 +1,6 @@
 import './App.css';
 
-import { ChakraProvider, Flex } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme, Flex } from '@chakra-ui/react';
 
 import Content from '../components/Content';
 import Header from '../components/Header';
@@ -179,8 +179,33 @@ const menuCategories = [
     },
 ];
 
+const theme = extendTheme({
+    components: {
+        Switch: {
+            baseStyle: {
+                track: {
+                    width: '34px',
+                    height: '20px',
+                    padding: '0',
+                    bg: '#00000029',
+                    _checked: {
+                        bg: '#03b24fdb',
+                    },
+                },
+                thumb: {
+                    position: 'absolute',
+                    width: '16px',
+                    height: '16px',
+                    top: '2px',
+                    left: '2px',
+                },
+            },
+        },
+    },
+});
+
 const App = () => (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
         <Header />
         <Flex>
             <Menu categories={menuCategories} />

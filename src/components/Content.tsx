@@ -1,14 +1,16 @@
-import { Box } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
 import PageTitle from './PageTitle';
+import SearchBar from './SearchBar';
 
 const Content = () => (
-    <Box margin='0 auto'>
+    <Flex margin='0 auto' align='center' direction='column'>
         <PageTitle
             title='Веганская кухня'
             description='Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.'
         />
-    </Box>
+        <SearchBar />
+    </Flex>
 );
 
 export default Content;
