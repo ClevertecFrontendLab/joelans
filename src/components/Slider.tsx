@@ -1,6 +1,7 @@
 import { Box, Heading } from '@chakra-ui/react';
 
 import CategoryTag from './CategoryTag';
+import Stats from './Stats';
 
 const Slider = () => (
     <Box pt='24px' mb='40px'>
@@ -8,6 +9,7 @@ const Slider = () => (
             Новые рецепты
         </Heading>
         <CategoryTag category='Веганские блюда' color='lime' />
+        <Stats favourites={2} likes={1} />
     </Box>
 );
 
