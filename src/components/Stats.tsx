@@ -1,17 +1,17 @@
 import { Flex, Icon, Text } from '@chakra-ui/react';
 
 interface StatsProps {
-    favourites?: number;
+    favorites?: number;
     followers?: number;
     likes?: number;
 }
 
-const Stats = ({ favourites = 0, followers = 0, likes = 0 }: StatsProps) => {
-    if (favourites === 0 && followers === 0 && likes === 0) return null;
+const Stats = ({ favorites = 0, followers = 0, likes = 0 }: StatsProps) => {
+    if (favorites === 0 && followers === 0 && likes === 0) return null;
 
     return (
         <Flex gap='8px'>
-            {favourites > 0 && (
+            {favorites > 0 && (
                 <Flex align='center' px='4px'>
                     <Icon mr='6px' w='12px' h='12px'>
                         <svg viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -28,7 +28,7 @@ const Stats = ({ favourites = 0, followers = 0, likes = 0 }: StatsProps) => {
                         </svg>
                     </Icon>
                     <Text color='#2db100' fontSize='12px' fontWeight='600'>
-                        {favourites}
+                        {favorites}
                     </Text>
                 </Flex>
             )}
