@@ -20,7 +20,7 @@ const VerticalCard = ({
     likes = 0,
     favorites = 0,
 }: VerticalCardProps) => (
-    <Box border='1px solid #00000014' borderRadius='8px' w='322px' h='414px'>
+    <Box border='1px solid #00000014' borderRadius='8px' w='322px' h='414px' flexShrink={0}>
         <Image src={imageSrc} borderTopRadius='8px' />
         <Box px='24px' pt='16px' pb='20px'>
             <Text

@@ -29,6 +29,10 @@ interface MenuProps {
 
 const Menu: React.FC<MenuProps> = ({ categories }) => (
     <Box
+        position='fixed'
+        top='80px'
+        left='0px'
+        zIndex='5'
         width='256px'
         pt='24px'
         boxShadow='0px 2px 4px  #00000033'

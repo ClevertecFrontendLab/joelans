@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 
 const Header = () => (
-    <Box bg='#ffffd3'>
+    <Box bg='#ffffd3' position='fixed' left='0' right='0' zIndex='5'>
         <Flex
             as='header'
             maxW='1920px'
