@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Heading, Icon, Text } from '@chakra-ui/react';
 
+import HorizontalCard from './HorizontalCard';
 import PageTitle from './PageTitle';
 import RecommendationTag from './RecommendationTag';
 import SearchBar from './SearchBar';
@@ -50,6 +51,15 @@ const Content = () => (
             </Flex>
         </Box>
         <RecommendationTag user='Елена Высоцкая' srcImg='./profile-photo.jpeg' />
+        <HorizontalCard
+            recommendation={{ user: 'Елена Высоцкая', imgSrc: './profile-photo.jpeg' }}
+            imageSrc='./recipes-images/horizontal-card-2.png'
+            title='Пряная ветчина по итальянски'
+            description='Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.'
+            category='Вторые блюда'
+            favorites={159}
+            likes={257}
+        />
     </Box>
 );
 

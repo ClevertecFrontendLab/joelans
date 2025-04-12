@@ -38,7 +38,7 @@ const CategoryTag = ({ category, color = 'yellow' }: CategoryTagProps) => {
             gap='8px'
         >
             <Image src={src} w='16px' h='16px' />
-            <Text fontSize='14px' fontWeight='400' lineHeight='20px'>
+            <Text fontSize='14px' fontWeight='400' lineHeight='20px' letterSpacing='0.01rem'>
                 {category}
             </Text>
         </Flex>
