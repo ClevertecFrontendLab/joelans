@@ -29,9 +29,16 @@ const HorizontalCard = ({
     <Flex
         border='1px solid #00000014'
         borderRadius='8px'
-        width='fit-content'
-        mb='200px'
+        // width='fit-content'
+        // minWidth="880px"
         position='relative'
+        width='calc(50% - 13px)'
+        sx={{
+            '@media (max-width: 1919px)': {
+                width: 'fit-content',
+                flexGrow: 1,
+            },
+        }}
     >
         {recommendation !== undefined && (
             <Box position='absolute' left='26px' bottom='20px'>
@@ -54,6 +61,11 @@ const HorizontalCard = ({
                 isTruncated
                 maxW='274px'
                 // maxW="calc(100% - 40px)"
+                sx={{
+                    '@media (max-width: 1919px)': {
+                        maxW: '80%',
+                    },
+                }}
             >
                 {title}
             </Text>

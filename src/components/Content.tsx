@@ -1,13 +1,60 @@
 import { Box, Button, Flex, Heading, Icon, Text } from '@chakra-ui/react';
 
-import HorizontalCard from './HorizontalCard';
+import LoadMorePagination from './LoadMorePagination';
 import PageTitle from './PageTitle';
-import RecommendationTag from './RecommendationTag';
 import SearchBar from './SearchBar';
 import Slider from './Slider';
 
+const horizontalCards = [
+    {
+        imgSrc: './recipes-images/horizontal-card-1.png',
+        title: 'Кнели со спагетти',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        category: 'Вторые блюда',
+        favorites: 85,
+        likes: 152,
+    },
+    {
+        imgSrc: './recipes-images/horizontal-card-2.png',
+        title: 'Пряная ветчина по итальянски',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        category: 'Вторые блюда',
+        favorites: 159,
+        likes: 257,
+        recommendation: {
+            user: 'Елена Высоцкая',
+            imgSrc: './avatars/avatar-1.png',
+        },
+    },
+    {
+        imgSrc: './recipes-images/horizontal-card-3.png',
+        title: 'Лапша с курицей и шафраном',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        category: 'Вторые блюда',
+        favorites: 258,
+        likes: 342,
+        recommendation: {
+            user: 'Alex Cook',
+            imgSrc: './avatars/avatar-2.png',
+        },
+    },
+    {
+        imgSrc: './recipes-images/horizontal-card-4.png',
+        title: 'Том-ям с капустой кимчи',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        category: 'Национальные',
+        favorites: 124,
+        likes: 324,
+    },
+];
+
 const Content = () => (
-    <Box pl='24px' pt='80px' ml='256px' mr='280px' width='calc(100% - 280px - 256px - 24px)'>
+    <Box pl='24px' pt='80px' ml='256px' mr='280px' width='calc(100% - 527px)'>
+        {/* 560 width='calc(100% - 280px - 256px - 24px)' */}
         <Flex align='center' direction='column'>
             <PageTitle
                 title='Веганская кухня'
@@ -49,17 +96,8 @@ const Content = () => (
                     </Icon>
                 </Button>
             </Flex>
+            <LoadMorePagination cards={horizontalCards} button={true} />
         </Box>
-        <RecommendationTag user='Елена Высоцкая' srcImg='./profile-photo.jpeg' />
-        <HorizontalCard
-            recommendation={{ user: 'Елена Высоцкая', imgSrc: './profile-photo.jpeg' }}
-            imageSrc='./recipes-images/horizontal-card-2.png'
-            title='Пряная ветчина по итальянски'
-            description='Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.'
-            category='Вторые блюда'
-            favorites={159}
-            likes={257}
-        />
     </Box>
 );
 
