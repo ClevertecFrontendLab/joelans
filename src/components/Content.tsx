@@ -1,12 +1,13 @@
 import { Box, Button, Flex, Heading, Icon, Link, Text } from '@chakra-ui/react';
 
+import { categoriesPreviewData } from '~/data/categoriesPreviewData';
+
 import BlogCard from './BlogCard';
+import CategoryPreview from './CategoryPreview';
 import LoadMorePagination from './LoadMorePagination';
 import PageTitle from './PageTitle';
-import RowCard from './RowCard';
 import SearchBar from './SearchBar';
 import Slider from './Slider';
-import VerticalCard from './VerticalCard';
 
 const horizontalCards = [
     {
@@ -80,10 +81,12 @@ const Content = () => (
     <Box pl='24px' pt='80px' ml='256px' mr='280px' width='calc(100% - 527px)'>
         {/* 560 width='calc(100% - 280px - 256px - 24px)' */}
         <Flex align='center' direction='column'>
-            <PageTitle
-                title='Веганская кухня'
-                description='Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.'
-            />
+            <Box my='32px'>
+                <PageTitle
+                    title='Веганская кухня'
+                    description='Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.'
+                />
+            </Box>
             <SearchBar />
         </Flex>
         <Slider />
@@ -166,34 +169,7 @@ const Content = () => (
                 ))}
             </Flex>
         </Box>
-        <Box>
-            <PageTitle
-                location='bottom'
-                title='Веганская кухня'
-                description='Интересны не только убеждённым вегетарианцам, но и тем, кто хочет попробовать вегетарианскую диету и готовить вкусные вегетарианские блюда.'
-            />
-            <VerticalCard
-                location='bottom'
-                title='Картошка, тушенная с болгарским перцем и фасолью в томатном соусе'
-                description='Картошка, тушенная с болгарским перцем, фасолью, морковью и луком, -  вариант сытного блюда на каждый день. Фасоль в данном случае заменяет мясо, делая рагу сытным и питательным. Чтобы сократить время  приготовления, возьмём консервированную фасоль. Блюдо хоть и простое, но в полной мере наполнено ароматами и имеет выразительный вкус за счёт  добавления томатной пасты.'
-                category='Вторые блюда'
-                likes={1}
-                favorites={1}
-            />
-            <VerticalCard
-                location='bottom'
-                title='Капустные котлеты'
-                description='Капустные котлеты по этому рецепту получаются необычайно пышными и  невероятно вкусными. Мягкий вкус и лёгкая пряная нотка наверняка помогут сделать эти чудесные котлеты из капусты одним из ваших любимых овощных  блюд.'
-                category='Вторые блюда'
-                likes={1}
-                favorites={2}
-            />
-            <Flex gap='12px' flexDirection='column'>
-                <RowCard title='Стейк для вегетарианцев' category='Вторые блюда' />
-                <RowCard title='Котлеты из гречки и фасоли' category='Вторые блюда' />
-                <RowCard title='Сырный суп с лапшой и брокколи' category='Первые блюда' />
-            </Flex>
-        </Box>
+        <CategoryPreview preview={categoriesPreviewData[0]} />
     </Box>
 );
 

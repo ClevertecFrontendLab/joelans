@@ -8,7 +8,6 @@ interface PageTitleProps {
 
 const PageTitle: React.FC<PageTitleProps> = ({ title, description, location = 'top' }) => (
     <Flex
-        my='32px'
         direction={location === 'bottom' ? 'row' : 'column'}
         justify='space-between'
         sx={{
