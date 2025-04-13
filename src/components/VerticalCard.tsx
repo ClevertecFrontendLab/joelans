@@ -4,12 +4,13 @@ import CategoryTag from './CategoryTag';
 import Stats from './Stats';
 
 interface VerticalCardProps {
-    imageSrc: string;
+    imageSrc?: string;
     title: string;
     description: string;
     category: string;
     likes?: number;
     favorites?: number;
+    location?: string;
 }
 
 const VerticalCard = ({
@@ -19,10 +20,17 @@ const VerticalCard = ({
     category,
     likes = 0,
     favorites = 0,
+    location = 'top',
 }: VerticalCardProps) => (
-    <Box border='1px solid #00000014' borderRadius='8px' w='322px' h='414px' flexShrink={0}>
-        <Image src={imageSrc} borderTopRadius='8px' />
-        <Box px='24px' pt='16px' pb='20px'>
+    <Box
+        border='1px solid #00000014'
+        borderRadius='8px'
+        w='322px'
+        h={location === 'bottom' ? 'auto' : '414px'}
+        flexShrink={0}
+    >
+        {location === 'top' && <Image src={imageSrc} borderTopRadius='8px' />}
+        <Box px='24px' pt={location === 'bottom' ? '24px' : '16px'} pb='20px'>
             <Text
                 fontSize='20px'
                 fontWeight='500'
