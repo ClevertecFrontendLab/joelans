@@ -1,4 +1,16 @@
-import { Box, Button, Flex, Heading, Icon, Link, Text } from '@chakra-ui/react';
+import {
+    Box,
+    Button,
+    Flex,
+    Heading,
+    Icon,
+    Link,
+    Tab,
+    TabIndicator,
+    TabList,
+    Tabs,
+    Text,
+} from '@chakra-ui/react';
 
 import { categoriesPreviewData } from '~/data/categoriesPreviewData';
 
@@ -169,6 +181,45 @@ const Content = () => (
                 ))}
             </Flex>
         </Box>
+        <Tabs variant='unstyled' mb='24px'>
+            <Flex justify='center' w='100%'>
+                <TabList
+                    w='fit-content'
+                    position='relative'
+                    overflowX='auto'
+                    sx={{
+                        '&::-webkit-scrollbar': { display: 'none' },
+                        scrollbarWidth: 'none',
+                    }}
+                >
+                    {[
+                        'Закуски',
+                        'Первые блюда',
+                        'Вторые блюда',
+                        'Гарниры',
+                        'Десерты',
+                        'Выпечка',
+                        'Сыроедческие блюда',
+                        'Напитки',
+                    ].map((category) => (
+                        <Tab
+                            fontWeight='500'
+                            fontSize='16px'
+                            color='#134b00'
+                            _selected={{
+                                color: '#2db100',
+                            }}
+                            _hover='none'
+                            _active='none'
+                            whiteSpace='nowrap'
+                        >
+                            {category}
+                        </Tab>
+                    ))}
+                    <TabIndicator height='2px' bg='#2db100' bottom='0' top='unset' />
+                </TabList>
+            </Flex>
+        </Tabs>
         <CategoryPreview preview={categoriesPreviewData[0]} />
     </Box>
 );
