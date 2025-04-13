@@ -3,6 +3,7 @@ import { Box, Button, Flex, Heading, Icon, Link, Text } from '@chakra-ui/react';
 import BlogCard from './BlogCard';
 import LoadMorePagination from './LoadMorePagination';
 import PageTitle from './PageTitle';
+import RowCard from './RowCard';
 import SearchBar from './SearchBar';
 import Slider from './Slider';
 
@@ -164,6 +165,11 @@ const Content = () => (
                 ))}
             </Flex>
         </Box>
+        <Flex gap='12px' flexDirection='column'>
+            <RowCard title='Стейк для вегетарианцев' category='Вторые блюда' />
+            <RowCard title='Котлеты из гречки и фасоли' category='Вторые блюда' />
+            <RowCard title='Сырный суп с лапшой и брокколи' category='Первые блюда' />
+        </Flex>
     </Box>
 );
 
