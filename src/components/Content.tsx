@@ -165,11 +165,18 @@ const Content = () => (
                 ))}
             </Flex>
         </Box>
-        <Flex gap='12px' flexDirection='column'>
-            <RowCard title='Стейк для вегетарианцев' category='Вторые блюда' />
-            <RowCard title='Котлеты из гречки и фасоли' category='Вторые блюда' />
-            <RowCard title='Сырный суп с лапшой и брокколи' category='Первые блюда' />
-        </Flex>
+        <Box>
+            <PageTitle
+                location='bottom'
+                title='Веганская кухня'
+                description='Интересны не только убеждённым вегетарианцам, но и тем, кто хочет попробовать вегетарианскую диету и готовить вкусные вегетарианские блюда.'
+            />
+            <Flex gap='12px' flexDirection='column'>
+                <RowCard title='Стейк для вегетарианцев' category='Вторые блюда' />
+                <RowCard title='Котлеты из гречки и фасоли' category='Вторые блюда' />
+                <RowCard title='Сырный суп с лапшой и брокколи' category='Первые блюда' />
+            </Flex>
+        </Box>
     </Box>
 );
 
