@@ -66,7 +66,7 @@ const Vegan = () => (
                 </Flex>
             </Tabs>
             <Box mb='40px'>
-                <LoadMorePagination button={true} cards={horizontalCardsVegan} />
+                <LoadMorePagination button={true} cards={horizontalCardsVegan} main={false} />
             </Box>
             <CategoryPreview preview={categoriesPreviewData[1]} />
         </Box>

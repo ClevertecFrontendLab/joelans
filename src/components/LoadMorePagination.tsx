@@ -20,11 +20,21 @@ interface Card {
 interface LoadMorePaginationProps {
     cards: Card[];
     button?: boolean;
+    main?: boolean;
 }
 
-const LoadMorePagination: React.FC<LoadMorePaginationProps> = ({ cards, button = false }) => (
+const LoadMorePagination: React.FC<LoadMorePaginationProps> = ({
+    cards,
+    button = false,
+    main = true,
+}) => (
     <Flex direction='column' align='center'>
-        <Flex wrap='wrap' gap='24px' mb={button ? '16px' : '0px'}>
+        <Flex
+            wrap='wrap'
+            rowGap={main ? '24px' : '16px'}
+            columnGap='24px'
+            mb={button ? '16px' : '0px'}
+        >
             {cards.map((card, index) => (
                 <HorizontalCard
                     key={index}

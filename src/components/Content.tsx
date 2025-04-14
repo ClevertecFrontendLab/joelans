@@ -1,6 +1,5 @@
 import {
     Box,
-    Button,
     Flex,
     Heading,
     Icon,
@@ -11,6 +10,7 @@ import {
     Tabs,
     Text,
 } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router';
 
 import { categoriesPreviewData } from '~/data/categoriesPreviewData';
 import { horizontalCards, usersPosts } from '~/data/horizontalCards';
@@ -40,7 +40,9 @@ const Content = () => (
                 <Heading as='h2' fontSize='48px' fontWeight='500' textAlign='left'>
                     Самое сочное
                 </Heading>
-                <Button
+                <Link
+                    as={RouterLink}
+                    to='/juicy'
                     width='197px'
                     height='48px'
                     gap='8px'
@@ -66,7 +68,7 @@ const Content = () => (
                             />
                         </svg>
                     </Icon>
-                </Button>
+                </Link>
             </Flex>
             <LoadMorePagination cards={horizontalCards} />
         </Box>
