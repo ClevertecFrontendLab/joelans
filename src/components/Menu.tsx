@@ -17,14 +17,12 @@ import {
     VStack,
 } from '@chakra-ui/react';
 import SimpleBar from 'simplebar-react';
+
+import { Category } from '~/data/menuCategories';
 const Scrollbar = chakra(SimpleBar);
 
 interface MenuProps {
-    categories: Array<{
-        title: string;
-        icon: string;
-        sections: string[];
-    }>;
+    categories: Category[];
 }
 
 const Menu: React.FC<MenuProps> = ({ categories }) => (
