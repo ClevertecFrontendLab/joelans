@@ -2,6 +2,8 @@ import './App.css';
 
 import { ChakraProvider, extendTheme, Flex } from '@chakra-ui/react';
 
+import Sidebar from '~/components/Sidebar';
+
 import Content from '../components/Content';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
@@ -211,6 +213,7 @@ const App = () => (
             <Menu categories={menuCategories} />
             <Content />
         </Flex>
+        <Sidebar />
     </ChakraProvider>
 );
 
