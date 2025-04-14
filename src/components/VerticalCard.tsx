@@ -11,6 +11,7 @@ interface VerticalCardProps {
     likes?: number;
     favorites?: number;
     location?: string;
+    colorTag?: 'yellow' | 'lime';
 }
 
 const VerticalCard = ({
@@ -21,6 +22,7 @@ const VerticalCard = ({
     likes = 0,
     favorites = 0,
     location = 'top',
+    colorTag = 'yellow',
 }: VerticalCardProps) => (
     <Box
         border='1px solid #00000014'
@@ -57,7 +59,7 @@ const VerticalCard = ({
                 {description}
             </Text>
             <Flex justify='space-between'>
-                <CategoryTag category={category} color='lime' />
+                <CategoryTag category={category} color={colorTag} />
                 <Stats favorites={favorites} likes={likes} />
             </Flex>
         </Box>

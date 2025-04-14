@@ -35,6 +35,7 @@ const Home = () => (
                     <Link
                         as={RouterLink}
                         to='/juicy'
+                        state={{ sourceLabel: 'Самое сочное' }}
                         width='197px'
                         height='48px'
                         gap='8px'

@@ -1,4 +1,6 @@
 import { Box, Flex, Tab, TabIndicator, TabList, Tabs } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
 
 import CategoryPreview from '~/components/CategoryPreview';
 import Header from '~/components/Header';
@@ -11,67 +13,89 @@ import { categoriesPreviewData } from '~/data/categoriesPreviewData';
 import { horizontalCardsVegan } from '~/data/horizontalCards';
 import { menuCategories } from '~/data/menuCategories';
 
-const Vegan = () => (
-    <Box>
-        <Header />
-        <Menu categories={menuCategories} />
-        <Box pl='24px' pt='80px' ml='256px' mr='280px' width='calc(100% - 527px)'>
-            {/* 560 width='calc(100% - 280px - 256px - 24px)' */}
-            <Flex align='center' direction='column'>
-                <Box my='32px'>
-                    <PageTitle
-                        title='Веганская кухня'
-                        description='Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.'
-                    />
-                </Box>
-                <SearchBar />
-            </Flex>
-            <Tabs variant='unstyled' mb='24px'>
-                <Flex justify='center' w='100%'>
-                    <TabList
-                        w='fit-content'
-                        position='relative'
-                        overflowX='auto'
-                        sx={{
-                            '&::-webkit-scrollbar': { display: 'none' },
-                            scrollbarWidth: 'none',
-                        }}
-                    >
-                        {[
-                            'Закуски',
-                            'Первые блюда',
-                            'Вторые блюда',
-                            'Гарниры',
-                            'Десерты',
-                            'Выпечка',
-                            'Сыроедческие блюда',
-                            'Напитки',
-                        ].map((category) => (
-                            <Tab
-                                fontWeight='500'
-                                fontSize='16px'
-                                color='#134b00'
-                                _selected={{
-                                    color: '#2db100',
-                                }}
-                                _hover='none'
-                                _active='none'
-                                whiteSpace='nowrap'
-                            >
-                                {category}
-                            </Tab>
-                        ))}
-                        <TabIndicator height='2px' bg='#2db100' bottom='0' top='unset' />
-                    </TabList>
+const Vegan = () => {
+    const location = useLocation();
+    const state = location.state as {
+        categoryTitle?: string;
+        sectionName?: string;
+        tabIndex?: number;
+    };
+
+    const [activeTabIndex, setActiveTabIndex] = useState(0);
+
+    useEffect(() => {
+        if (state?.tabIndex !== undefined) {
+            setActiveTabIndex(state.tabIndex);
+        }
+    }, [state]);
+
+    return (
+        <Box>
+            <Header />
+            <Menu categories={menuCategories} />
+            <Box pl='24px' pt='80px' ml='256px' mr='280px' width='calc(100% - 527px)'>
+                {/* 560 width='calc(100% - 280px - 256px - 24px)' */}
+                <Flex align='center' direction='column'>
+                    <Box my='32px'>
+                        <PageTitle
+                            title='Веганская кухня'
+                            description='Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.'
+                        />
+                    </Box>
+                    <SearchBar />
                 </Flex>
-            </Tabs>
-            <Box mb='40px'>
-                <LoadMorePagination button={true} cards={horizontalCardsVegan} main={false} />
+                <Tabs
+                    variant='unstyled'
+                    mb='24px'
+                    index={activeTabIndex}
+                    onChange={setActiveTabIndex}
+                >
+                    <Flex justify='center' w='100%'>
+                        <TabList
+                            w='fit-content'
+                            position='relative'
+                            overflowX='auto'
+                            sx={{
+                                '&::-webkit-scrollbar': { display: 'none' },
+                                scrollbarWidth: 'none',
+                            }}
+                        >
+                            {[
+                                'Закуски',
+                                'Первые блюда',
+                                'Вторые блюда',
+                                'Гарниры',
+                                'Десерты',
+                                'Выпечка',
+                                'Сыроедческие блюда',
+                                'Напитки',
+                            ].map((category) => (
+                                <Tab
+                                    fontWeight='500'
+                                    fontSize='16px'
+                                    color='#134b00'
+                                    _selected={{
+                                        color: '#2db100',
+                                    }}
+                                    _hover='none'
+                                    _active='none'
+                                    whiteSpace='nowrap'
+                                >
+                                    {category}
+                                </Tab>
+                            ))}
+                            <TabIndicator height='2px' bg='#2db100' bottom='0' top='unset' />
+                        </TabList>
+                    </Flex>
+                </Tabs>
+                <Box mb='40px'>
+                    <LoadMorePagination button={true} cards={horizontalCardsVegan} main={false} />
+                </Box>
+                <CategoryPreview preview={categoriesPreviewData[1]} />
             </Box>
-            <CategoryPreview preview={categoriesPreviewData[1]} />
+            <Sidebar />
         </Box>
-        <Sidebar />
-    </Box>
-);
+    );
+};
 
 export default Vegan;

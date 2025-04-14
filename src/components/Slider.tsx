@@ -90,6 +90,7 @@ const Slider = () => (
                             category={card.category}
                             favorites={card.favorites}
                             likes={card.likes}
+                            colorTag='lime'
                         />
                     ))}
                 </Flex>
