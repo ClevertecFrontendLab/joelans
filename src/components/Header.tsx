@@ -1,4 +1,3 @@
-import { HamburgerIcon } from '@chakra-ui/icons';
 import {
     Box,
     Breadcrumb,
@@ -12,6 +11,9 @@ import {
 } from '@chakra-ui/react';
 import { useLocation } from 'react-router';
 import { Link as RouterLink } from 'react-router';
+
+import AvatarCard from './AvatarCard';
+import Stats from './Stats';
 
 const Header = () => {
     const location = useLocation();
@@ -52,7 +54,10 @@ const Header = () => {
                 py='16px'
                 sx={{
                     '@media (max-width: 1100px)': {
-                        padding: '8px 16px',
+                        padding: '8px 20px',
+                    },
+                    '@media (max-width: 500px)': {
+                        paddingRight: '20px',
                     },
                 }}
             >
@@ -108,7 +113,22 @@ const Header = () => {
                         })}
                     </Breadcrumb>
                 </Flex>
-                <Flex
+                <Box
+                    pr='65px'
+                    sx={{
+                        '@media (max-width: 1100px)': {
+                            display: 'none',
+                        },
+                    }}
+                >
+                    <AvatarCard
+                        imgSrc='./avatars/avatar-4.png'
+                        user='Екатерина Константинопольская'
+                        userHandle='@bake_and_pie'
+                    />
+                </Box>
+
+                {/* <Flex
                     align='center'
                     pr='55px'
                     sx={{
@@ -133,17 +153,29 @@ const Header = () => {
                             @bake_and_pie
                         </Text>
                     </Box>
-                </Flex>
+                </Flex> */}
                 <Flex
+                    align='center'
                     sx={{
                         '@media (min-width: 1101px)': {
                             display: 'none',
                         },
                     }}
                 >
-                    <Flex
+                    <Box
+                        mr='16px'
+                        px='4px'
+                        sx={{
+                            '@media (max-width: 530px)': {
+                                margin: '0 8px 0 0',
+                            },
+                        }}
+                    >
+                        <Stats favorites={185} followers={589} likes={587} />
+                    </Box>
+                    {/* <Flex
                         align='center'
-                        mr='16px' /*8px*/
+                        mr='16px' ---8px
                         sx={{
                             '@media (max-width: 530px)': {
                                 margin: '0 8px 0 0',
@@ -215,17 +247,29 @@ const Header = () => {
                             </Icon>
                             <Text color='#2db100'>587</Text>
                         </Flex>
-                    </Flex>
+                    </Flex> */}
                     <IconButton
-                        icon={<HamburgerIcon />}
+                        icon={
+                            <Icon width='24px' height='24px'>
+                                <svg
+                                    viewBox='0 0 24 24'
+                                    fill='none'
+                                    xmlns='http://www.w3.org/2000/svg'
+                                >
+                                    <path
+                                        d='M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z'
+                                        fill='black'
+                                    />
+                                </svg>
+                            </Icon>
+                        }
                         aria-label='Burger menu'
                         bg='transparent'
                         _hover='none'
                         _active='none'
-                        w={2}
-                        h={2}
-                        boxSize={12}
                         fontSize='24px'
+                        w='48px'
+                        h='48px'
                     />
                 </Flex>
             </Flex>
