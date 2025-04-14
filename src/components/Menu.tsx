@@ -16,6 +16,7 @@ import {
     Text,
     VStack,
 } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router';
 import SimpleBar from 'simplebar-react';
 
 import { Category } from '~/data/menuCategories';
@@ -107,6 +108,8 @@ const Menu: React.FC<MenuProps> = ({ categories }) => (
                                         <VStack gap='0' align='flex-start'>
                                             {category.sections.map((section, subIndex) => (
                                                 <Link
+                                                    as={RouterLink}
+                                                    to='/vegan'
                                                     _hover={{ bg: '#ffffd3' }}
                                                     transition='all 0.2s ease-out'
                                                     role='group'
