@@ -26,7 +26,7 @@ const VerticalCard = ({
         border='1px solid #00000014'
         borderRadius='8px'
         w='322px'
-        h={location === 'bottom' ? 'auto' : '414px'}
+        // h={location === 'bottom' ? 'auto' : '414px'}
         flexShrink={0}
     >
         {location === 'top' && <Image src={imageSrc} borderTopRadius='8px' />}
@@ -45,7 +45,7 @@ const VerticalCard = ({
                 fontSize='14px'
                 fontWeight='400'
                 lineHeight='20px'
-                mb='24px'
+                mb='26px'
                 sx={{
                     display: '-webkit-box',
                     WebkitLineClamp: 3,

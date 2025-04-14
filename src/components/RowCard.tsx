@@ -10,7 +10,7 @@ interface RowCardProps {
 const RowCard: React.FC<RowCardProps> = ({ title, category }) => (
     <Flex
         px='24px'
-        py='12px'
+        py='11px'
         align='center'
         justify='space-between'
         flex='1 1 0'
